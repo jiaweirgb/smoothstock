@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: #686968;
+  text-align: center
+}
+
+h1{
+  text-align: center
+}
+
+box{
+  text-align: center
+}
+
+form{
+    text-align: center
+}
+a href{
+  text-align: center
+}
+
+.block {
+ margin: auto;
+  display: block;
+  width: 15%;
+  border: none;
+  background-color: #454747;
+  border: 3px solid #2f2f30;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.block1 {
+ margin: auto;
+  display: block;
+  width: 80%;
+  border: none;
+  background-color: #454747;
+  border: 3px solid #2f2f30;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+</style>
+</head>
+<body>
+
+<div class="box">
+{% if error %}
+    <p class=error>{{ error }}
+  {% endif %}
+
+ </div>
+<h1 style="font-family:verdana;">Smooth Stocks</h1>
+
+<form action="/" method="POST" class="block">
+  <label for="username">Username:</label><br>
+  <input type="text" id="username" name="username"><br>
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password"><br><br>
+  <input type="submit" value="Login" class ="block1">
+</form>
+
+<br>
+<a href="/create_account" class="block">Create account</a><br>
+<a href="/reset" class = "block">Forgot Password</a>
+
+
+</body>
+</html>

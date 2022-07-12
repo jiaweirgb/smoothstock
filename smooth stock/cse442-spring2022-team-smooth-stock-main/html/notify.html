@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="David Tan">
+		<meta name="keywords" content="HTML, CSS">
+		
+	</head>
+	<body>
+		<!--<script type=text/javascript src="{{url_for('static', filename='index.js')}}"></script>-->
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='tb-style.css') }}" />
+
+		<div id = "topbar">
+            <a class="left" href="LandingPage"><button>Back</button></a>
+            <a href="discover"><button>Discover</button></a>
+            <a href="news"><button>News</button></a>
+            <a href="notify"><button>Notifications</button></a>
+          </div>
+
+		<div class="ui">
+			
+			<div class="info">
+				<div class="tba">
+					<br />
+					<h1 class=name>User info: {{ name }}</h1>
+
+					{% if error %}
+   					 <p class=error>{{ error }}
+						 {% endif %}
+					 </p>
+
+					 <br />
+					 <p class=percent>{{ notity_percent }}</p>
+					 <p class=last_note>{{ last_note }}</p>
+
+				</div>
+			</div>
+			
+			<br />
+			<div class="setting">
+				<br />
+				<br />
+				<div>
+					<a href="https://discord.com/invite/fZfDuYUVh4" target="_blank"><button>Link to Discord Server for Notification</button></a>
+				</div>
+				
+				<br />
+				<br />
+				<form action="/notify" enctype="multipart/form-data" id="send_email" method="POST">
+					<input type="submit" name="submit_button" value="Notify when price change .5%">
+					<br />
+					<br />
+					<br />
+					<input type="submit" name="submit_button" value="Notify when price change 1%">
+					<br />
+					<br />
+					<br />
+					<input id="textbox_2" name="newemail" type="text" placeholder="{{curr_email}}" >
+					<input type="submit" name="submit_button" value="Change Email"></input>
+					<br />
+					<br />
+					<br />
+				</form>				
+						
+
+			</div>
+		</div>
+	</body>
+</html>
+
+<style>
+
+body{
+	background-color:gray;
+}
+div.ui{
+	position:relative;
+}
+
+div.info{
+	height: 200px;
+	width: 50%;
+	position:absolute;
+	left:0;
+	/*border: 3px solid #73AD21;*/
+
+}
+
+div.setting{
+	left:50%;
+	position:absolute;
+	border: 3px solid;
+	text-align:center;
+	width: 45%;
+	background-color:white;
+	margin-top: 5%;
+	/*border: 3px solid #73AD21;*/
+	padding-top: 1%;
+	padding-bottom: 1%;
+
+	border-radius: 25px;
+}
+
+button.but1{
+	margin-bottom:50px;
+	margin-top:50px;
+	width:40%;
+	height:150px;
+	border-radius: 25px;
+	box-shadow: 2px 2px;
+
+}
+button.but2{
+	width:40%;
+	height:150px;
+	margin-bottom:50px;
+	margin-top:50px;
+	border-radius: 25px;
+	box-shadow: 2px 2px;
+	
+}
+button.dis{
+	width:80%;
+	height:50px;
+	margin-bottom:50px;
+	margin-top:50px;
+	border-radius: 25px;
+	box-shadow: 2px 2px;
+}
+button.back{
+	left:0;
+	border-radius: 25px;
+
+}
+
+#fname{
+	width:70%;
+	height:25px;
+	margin-bottom:50px;
+	margin-top:50px;
+	border-radius: 25px;
+
+}
+
+#submit{
+	height:25px;
+	border-radius: 25px;
+	margin-bottom:50px;
+	margin-top:50px;
+}
+
+div.tba{
+	text-align:center;
+	/*border: 3px solid #73AD21;*/
+	margin-left:10%;
+	margin-top:5%;
+	width:75%;
+	height:250%;
+	background-color:white;
+	border-radius: 25px;
+
+}
+</style>

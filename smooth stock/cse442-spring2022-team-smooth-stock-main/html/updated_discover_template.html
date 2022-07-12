@@ -1,0 +1,135 @@
+<!-- This file contains the basic HTML for the Discover/Find Stock Page -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Add Title to Tab -->
+        <title>Smooth Stock: Find Stock</title>
+
+        <!-- Link Page to CSS style sheet -->
+        <link rel="stylesheet" type="text/css" href="discover.css"/> 
+
+        <!-- Add common topbar to Discover/Find Stocks page -->
+        <div id = "topbar">
+            <a href="LandingPage"><button>Back</button></a>
+            <a href="discover"><button>Discover</button></a>
+            <a href="news"><button>News</button></a>
+            <a href="notify"><button>Notifications</button></a>
+          </div>
+
+        <!-- Add a break to give some space between button and search bar -->
+        <br><br>
+        
+        <!-- Create Search Bar Form -->
+        <form action="/find-stock" id="find-stock-form" method="post" enctype="multipart/form-data" class="find-stock-form">
+
+            <!-- Create input for Search bar with placeholder text prompting User to enter the company stock info they would like to see -->
+            <input id="find-stock-form-search" type="text" name="stock" placeholder="Enter symbol of company to search for..." class="search-bar">
+
+        </form>
+
+        <!-- Create flexbox -->
+        <div class="flex-container">
+
+            <!-- Replace this line of the template to display searched stocks Price history-->
+            <div class="price-history"> {{ Price_History }} <br> {{ Fifty_Two_Week_Range }} <br> {{ Fifty_Day_Average }} <br> {{ Two_Hundred_Day_Average }} <br> {{ EPS_Current_Year }} <br> {{ Price_EPS_Current_Year }} <br> {{ Average_Analyst_Rating }} </div>
+
+            <!-- Replace this line of the template to display searched stocks Current Price -->
+            <div class="stock-name">{{ Stock_Name }} <br> {{ Apple }} <br> {{ Current_Stock_Price }} <br> {{ Current_plus_minus }} <br> <button class="button">Follow Stock</button></div>
+
+            <!-- Replace this line of the template to display news articles relevant to search stock -->
+            <div class="related-news">Related News Articles<br> {{ Article_1 }} <br> {{ Article_2 }} <br> {{ Article_3 }} </div>
+
+        </div>
+              
+    </head>
+
+</html>
+
+<style>
+    /* Update search-bar to be a larger input text field */
+.search-bar{
+    background-color: lightgray;
+    color: black;
+    width: 90%;
+    height: 100%;
+    border-radius: 4px;
+    border-width: 5px;
+    border-color: white;
+    margin-left: 5%;
+    
+}
+
+/* Update button style */
+.button {
+    background-color: lightgrey;
+    color: black;
+
+}
+
+/* Override placeholder for Chrome, Firefox, Opera, Safai 10.1+ */
+::placeholder {
+    color: black;
+    opacity: 1;
+}
+
+/* Override placeholder for Internet Explorer */
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+  }
+  
+/* Override placeholder for Microsoft Edge */
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: white;
+  }
+
+/* Update styling for the body of the find stock page*/
+body {
+    background-color: gray;
+}
+
+/* Style for top bar*/
+div#topbar {
+
+  width:100%; 
+  margin:auto; 
+  border:15px groove #CCCC99; 
+  background-color:blue; 
+  text-align:center;
+  }
+
+/* Update flex-box style */
+.flex-container {
+    display: flex;
+    height: 500px;
+    align-items: center;
+    background-color: grey;
+    justify-content: space-around;
+}
+
+/* Update Price History div style */
+.price-history {
+    background-color: white;
+    border-radius: 10px;
+    border-width: 5px;
+    border-color: white;
+    padding: 5%;
+}
+
+/* Update stock-name div style */
+.stock-name {
+    background-color: white;
+    border-radius: 10px;
+    border-width: 5px;
+    border-color: white;
+    padding: 5%;
+}
+
+/* Update related-news div style */
+.related-news {
+    background-color: white;
+    border-radius: 10px;
+    border-width: 5px;
+    border-color: white;
+    padding: 5%;
+}
+</style>
